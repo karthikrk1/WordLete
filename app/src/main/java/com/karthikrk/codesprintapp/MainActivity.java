@@ -119,7 +119,9 @@ public class MainActivity extends AppCompatActivity {
         tw4.setText("Press RESET to start a new game!!");
     }
 
-
+    /**
+     * Handler for the DONE buttons
+     */
     public void onClickDone(){
         computerTurn(tw1.getText().toString());
     }
