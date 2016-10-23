@@ -59,7 +59,11 @@ public class MainActivity extends AppCompatActivity {
         onStart(null);
     }
 
-
+    /**
+     * Handler for the RESET button
+     * @param view
+     * @return
+     */
     public boolean onStart(View view){
         int alpha = rand.nextInt(26);
         String c = Character.toString((char) (97+alpha));
@@ -72,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         userTurn();
         return true;
     }
+
+    /**
+     * Method for the user turn. Based on the turn, the user enters one character and then moves forward to the entire word.
+     */
 
     public void userTurn(){
         //tw1.setEnabled(true);
