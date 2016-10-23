@@ -84,6 +84,12 @@ public class TrieNode {
         return null;
     }
 
+    /**
+     * Method to get the longest word starting with the prefix
+     * @param s
+     * @return
+     *          : Returns a string of the longest length with the prefix
+     */
     public String getLongestWordStartingWith(String s){
         TrieNode t = search(s);
         HashMap<Character, TrieNode> ch = children;
@@ -102,6 +108,11 @@ public class TrieNode {
         return out;
     }
 
+    /**
+     * Method to get the Length of the longest word starting with the prefix entered.
+     * @param s
+     * @return
+     */
     public int getLengthOfLongestWordStartingWith(String s){
         String o=getLongestWordStartingWith(s);
         if(o==null)
