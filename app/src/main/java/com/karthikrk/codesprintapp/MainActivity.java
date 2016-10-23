@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             tw4.setText("Computer has entered its word!!");
-            tw2.setText(word);
+            tw2.setText(s+"z");
             findWinner();
         }
     }
