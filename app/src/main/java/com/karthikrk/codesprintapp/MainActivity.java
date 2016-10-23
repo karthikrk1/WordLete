@@ -142,7 +142,11 @@ public class MainActivity extends AppCompatActivity {
         if(tNode.isWord(userWord)) {
             if (userWord.length() > compWord.length()) {
                 tw3.setText(USER_WINS);
-            } else {
+            }
+            else if(userWord.length() == compWord.length()){
+                tw3.setText("Tie!!");
+            }
+            else {
                 tw3.setText(COMPUTER_WINS);
             }
         }
