@@ -60,8 +60,7 @@
         android:layout_alignBaseline="@+id/button"
         android:layout_alignBottom="@+id/button"
         android:layout_centerHorizontal="true"
-        style="@android:style/Widget.Material.Light.Button.Borderless.Small"
-        tools:targetApi="lollipop" />
+        style="@android:style/Widget.Material.Light.Button.Borderless.Small" />
 
     <Button
         android:text="RESET"
