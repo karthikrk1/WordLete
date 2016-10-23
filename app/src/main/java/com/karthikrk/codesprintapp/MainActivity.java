@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String USER_WINS="User won!!!";
     private static final String COMPUTER_WINS="Computer won!!!";
     private boolean userPlays=false;
+    private Character[] alphabets = new Character[26];
 
 
 
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        for(int i=0; i<26;i++)
+            alphabets[i] = (char)(i+97);
         AssetManager assetManager = getAssets();
         try{
             InputStream iStream = assetManager.open("words.txt");
@@ -141,37 +144,36 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    protected String GuessWord(String s)
+    protected String GuessWord(String start)
     {
-        String userEntered = "abcreviation";
-        String smallest = "anbreviation";
-        String smallest1 = "accreviation";
-        String largest = "anthropologist";
-        String[] wordsList = {smallest, smallest1, largest};
-
+        Character notToUse = start.charAt(start.length()-1);
+        String toBuild = start.substring(0,start.length()-1);
+        String longWord = null;
         PriorityQueue<Integer> pq = new PriorityQueue<Integer>(26, Collections.reverseOrder());
 
-        pq.add(12);
-        pq.add(14);
-
-
         HashMap<Integer, ArrayList<String>> wordMap = new HashMap<>();
-        for(String word: wordsList)
+
+        for(Character buildCharacter: alphabets)
         {
-            if(!wordMap.containsKey(word.length()))
+            if(buildCharacter!=notToUse)
             {
-                ArrayList<String> sameLengthWords = new ArrayList<>();
-                sameLengthWords.add(word);
-                wordMap.put(word.length(), sameLengthWords);
+                longWord = tNode.getLongestWordStartingWith(toBuild + buildCharacter);
+                if(longWord!=null) {
+                    if (!wordMap.containsKey(longWord.length())) {
+                        pq.add(longWord.length());
+                        ArrayList<String> sameLengthWords = new ArrayList<>();
+                        sameLengthWords.add(longWord);
+                        wordMap.put(longWord.length(), sameLengthWords);
+
+                    } else {
+                        wordMap.get(longWord.length()).add(longWord);
+
+                    }
+                }
 
             }
-            else
-            {
-                wordMap.get(word.length()).add(word);
-
-            }
-
         }
+
         String chosen = wordMap.get(pq.peek()).get(0);
         return chosen;
     }
