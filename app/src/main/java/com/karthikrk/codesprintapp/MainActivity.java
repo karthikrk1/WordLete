@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     public void userTurn(){
         //tw1.setEnabled(true);
         tw4 = (TextView) findViewById(R.id.textView4);
+        tw3.setText(USER_TURN);
         //turn=1;
         if(turn==1){
             tw4.setText("Please enter one character. Press DONE to continue");
