@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String COMPUTER_WINS="Computer won!!!";
     private boolean userPlays=false;
     private Character[] alphabets = new Character[26];
-
+    private int turn=1;
 
 
 
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     public void userTurn(){
         //tw1.setEnabled(true);
         tw4 = (TextView) findViewById(R.id.textView4);
-        int turn=1;
+        //turn=1;
         if(turn==1){
             tw4.setText("Please enter one character. Press DONE to continue");
             turn++;
@@ -100,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
     public void computerTurn(String s) {
         tw2.setEnabled(true);
         tw3.setText(COMPUTER_TURN);
-        int turn=1;
+        //int turn=1;
         String word="";
-        if(turn==1) {
+        if(turn==2) {
             tw4.setText("Computer enters a character!!");
             word=GuessWord(s);
             String al = tw2.getText().toString();
