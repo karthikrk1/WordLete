@@ -1,5 +1,6 @@
 package com.karthikrk.codesprintapp;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 
@@ -96,7 +97,8 @@ public class TrieNode {
         int length=0;
         HashMap<Character, TrieNode> ch = children;
         ch=t.children;
-        Character[] nKey = (Character[]) ch.keySet().toArray();
+        Object[] nKeyArray = ch.keySet().toArray();
+        Character[] nKey = Arrays.copyOf(nKeyArray, nKeyArray.length, Character[].class);
         if(t==null){
             return null;
         }
