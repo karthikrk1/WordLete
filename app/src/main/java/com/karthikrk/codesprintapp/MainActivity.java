@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public boolean onStart(View view){
-        int alpha = rand.nextInt(27);
-        String c = Character.toString((char) alpha);
+        int alpha = rand.nextInt(26);
+        String c = Character.toString((char) (97+alpha));
         tw1 = (TextView) findViewById(R.id.textView);
         tw2 = (TextView) findViewById(R.id.textView2);
         tw3 = (TextView) findViewById(R.id.textView3);
