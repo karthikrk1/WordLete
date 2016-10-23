@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean userPlays=false;
     private Character[] alphabets = new Character[26];
     private int turn;
+    private String computerWord;
 
 
 
@@ -102,12 +103,11 @@ public class MainActivity extends AppCompatActivity {
         tw2.setEnabled(true);
         tw3.setText(COMPUTER_TURN);
         //int turn=1;
-        String word="";
         if(turn==2) {
             tw4.setText("Computer enters a character!!");
-            word=GuessWord(s);
+            computerWord=GuessWord(s);
             String al = tw2.getText().toString();
-            al = al + Character.toString(word.charAt(1));
+            al = al + Character.toString(computerWord.charAt(1));
             tw2.setText(al);
             turn++;
             userTurn();
