@@ -9,8 +9,12 @@ import java.util.*;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             tNode = new TrieNode();
             String line = null;
             while((line=br.readLine())!=null){
-                String word = line.trim();
+                String word = line.trim().toLowerCase();
                 tNode.add(word);
             }
         }
@@ -66,18 +71,75 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void userTurn(){
+        //tw1.setEnabled(true);
         tw4 = (TextView) findViewById(R.id.textView4);
         int turn=1;
         if(turn==1){
-            tw4.setText("Please enter one character");
+            tw4.setText("Please enter one character. Press DONE to continue");
             turn++;
         }
         else{
-            tw4.setText("Please enter the word you thought of");
+            tw4.setText("Please enter the word you thought of. Press DONE to continue");
+        }
+        tw2.setEnabled(false);
+        tw3.setEnabled(false);
+        tw4.setEnabled(false);
+    }
+
+    public void computerTurn(String s) {
+        tw2.setEnabled(true);
+        tw3.setText(COMPUTER_TURN);
+        int turn=1;
+        String word="";
+        if(turn==1) {
+            tw4.setText("Computer enters a character!!");
+            word=GuessWord(s);
+            String al = tw2.getText().toString();
+            al = al + Character.toString(word.charAt(1));
+            tw2.setText(al);
+            turn++;
+            userTurn();
+        }
+        else{
+            tw4.setText("Computer has entered its word!!");
+            tw2.setText(word);
+            findWinner();
         }
     }
 
-    protected String GuessWord()
+    public void findWinner() {
+        String userWord = tw1.getText().toString();
+        String compWord = tw2.getText().toString();
+        if(userWord.length()>compWord.length()){
+            tw3.setText(USER_WINS);
+        }
+        else{
+            tw3.setText(COMPUTER_WINS);
+        }
+        tw4.setText("Press RESET to start a new game!!");
+    }
+
+
+    public void onClickDone(){
+        computerTurn(tw1.getText().toString());
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent keyEvent) {
+        char x = (char) keyEvent.getUnicodeChar();
+        if(x>='a' && x<='z') {
+            String s =  tw1.getText().toString();
+            s=s+Character.toString(x);
+            tw1.setText(s);
+            //computerTurn(s);
+        }
+        else {
+            return super.onKeyUp(keyCode,keyEvent);
+        }
+        return true;
+    }
+
+    protected String GuessWord(String s)
     {
         String userEntered = "abcreviation";
         String smallest = "anbreviation";
