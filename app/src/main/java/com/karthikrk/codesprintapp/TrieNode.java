@@ -112,6 +112,7 @@ public class TrieNode {
      * Method to get the Length of the longest word starting with the prefix entered.
      * @param s
      * @return
+     *          : Retuns the length of the longest word starting with the prefix.
      */
     public int getLengthOfLongestWordStartingWith(String s){
         String o=getLongestWordStartingWith(s);
