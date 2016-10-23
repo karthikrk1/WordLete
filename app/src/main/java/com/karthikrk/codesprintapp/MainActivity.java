@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Handler for the DONE buttons
      */
-    public void onClickDone(){
+    public void onClickDone(View view){
         computerTurn(tw1.getText().toString());
     }
 
