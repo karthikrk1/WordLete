@@ -92,20 +92,36 @@ public class TrieNode {
      */
     public String getLongestWordStartingWith(String s){
         TrieNode t = search(s);
+        String result="";
+        int length=0;
         HashMap<Character, TrieNode> ch = children;
-        String out=s + "";
+        ch=t.children;
+        Character[] nKey = (Character[]) ch.keySet().toArray();
         if(t==null){
             return null;
         }
-        else{
-            while(!t.isWord&&t.children!=null){
-                ch=t.children;
-                Character nKey = (Character) ch.keySet().toArray()[0];
-                out = out + nKey;
-                t=ch.get(nKey);
+        else {
+            String out=null;
+            for(char c: nKey){
+                TrieNode temp = search(s+c);
+                out=s+"";
+                if(temp==null){
+                    out=s+"";
+                }
+                else{
+                    while(!temp.isWord && temp.children!=null){
+                        ch = temp.children;
+                        Character nK = (Character) ch.keySet().toArray()[0];
+                        out = out + nK;
+                        t=ch.get(nK);
+                    }
+                }
+                if(result.length()<out.length())
+                    result=out;
             }
+
         }
-        return out;
+        return result;
     }
 
     /**
