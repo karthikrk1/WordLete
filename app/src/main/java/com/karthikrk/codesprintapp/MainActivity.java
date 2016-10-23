@@ -22,7 +22,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tw1,tw2,tw3,tw4,tw5;
+    private TextView tw1,tw2,tw3,tw4,tw6;
     private Button btn1, btn2;
     private TrieNode tNode;
     private Random rand = new Random();
@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean userPlays=false;
     private Character[] alphabets = new Character[26];
     private int turn;
+    private int turnlimit;
     private String computerWord;
+    private static String computerBuild;
 
 
 
@@ -69,13 +71,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onStart(View view){
         turn=1;
         int alpha = rand.nextInt(26);
+        turnlimit = rand.nextInt(5)+1;
         String c = Character.toString((char) (97+alpha));
         tw1 = (TextView) findViewById(R.id.textView);
         tw2 = (TextView) findViewById(R.id.textView2);
         tw3 = (TextView) findViewById(R.id.textView3);
+        tw6 = (TextView) findViewById(R.id.textView6);
         tw1.setText(c);
         tw2.setText(c);
         tw3.setText(USER_TURN);
+        tw6.setText("HEY! You can just guess "+turnlimit+" more letters!");
         userTurn();
         return true;
     }
@@ -88,29 +93,39 @@ public class MainActivity extends AppCompatActivity {
         //tw1.setEnabled(true);
         tw4 = (TextView) findViewById(R.id.textView4);
         tw3.setText(USER_TURN);
+
         //turn=1;
-        if(turn==1){
+        if(turn<turnlimit){
+            if(turn==1)
+                tw6.setText("Feel free to guess "+(turnlimit)+" more letters!");
             tw4.setText("Please enter one character. Press DONE to continue");
             turn++;
+
         }
         else{
             tw4.setText("Please enter the word you thought of. Press DONE to continue");
         }
-        tw2.setEnabled(false);
-        tw3.setEnabled(false);
-        tw4.setEnabled(false);
+//        tw2.setEnabled(false);
+//        tw3.setEnabled(false);
+//        tw4.setEnabled(false);
     }
 
     public void computerTurn(String s) {
-        tw2.setEnabled(true);
+        //tw2.setEnabled(true);
         tw3.setText(COMPUTER_TURN);
+        if(turn==2)
+        computerBuild = s;
+        else
+        computerBuild = computerBuild + s.charAt(s.length()-1);
         //int turn=1;
-        if(turn==2) {
+        if(turn==2||turn==4||turn==6) {
+            tw6.setText("Feel free to guess "+(turnlimit-turn+1)+" more letters!");
             tw4.setText("Computer enters a character!!");
-            computerWord=GuessWord(s);
+            computerWord=GuessWord(computerBuild);
             String al = tw2.getText().toString();
-            al = al + Character.toString(computerWord.charAt(1));
+            al = al + Character.toString(computerWord.charAt(s.length()-1));
             tw2.setText(al);
+            computerBuild = computerWord.substring(0,s.length());
             turn++;
             userTurn();
         }
