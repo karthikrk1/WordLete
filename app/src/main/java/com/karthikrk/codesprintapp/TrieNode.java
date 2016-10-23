@@ -102,6 +102,7 @@ public class TrieNode {
         }
         else {
             String out=null;
+            HashMap<Character, TrieNode> child;
             for(char c: nKey){
                 TrieNode temp = search(s+c);
                 out=s+"";
@@ -110,8 +111,8 @@ public class TrieNode {
                 }
                 else{
                     while(!temp.isWord && temp.children!=null){
-                        ch = temp.children;
-                        Character nK = (Character) ch.keySet().toArray()[0];
+                        child = temp.children;
+                        Character nK = (Character) child.keySet().toArray()[0];
                         out = out + nK;
                         t=ch.get(nK);
                     }
