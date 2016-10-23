@@ -22,7 +22,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tw1,tw2,tw3,tw4;
+    private TextView tw1,tw2,tw3,tw4,tw5;
     private Button btn1, btn2;
     private TrieNode tNode;
     private Random rand = new Random();
