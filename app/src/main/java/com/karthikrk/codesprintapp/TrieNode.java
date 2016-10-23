@@ -98,7 +98,7 @@ public class TrieNode {
             return null;
         }
         else{
-            while(!t.isWord&&t.children==null){
+            while(!t.isWord&&t.children!=null){
                 ch=t.children;
                 Character nKey = (Character) ch.keySet().toArray()[0];
                 out = out + nKey;

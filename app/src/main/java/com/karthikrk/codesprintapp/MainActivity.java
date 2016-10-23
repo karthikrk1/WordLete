@@ -9,6 +9,7 @@ import java.util.*;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -122,12 +123,15 @@ public class MainActivity extends AppCompatActivity {
     public void findWinner() {
         String userWord = tw1.getText().toString();
         String compWord = tw2.getText().toString();
-        if(userWord.length()>compWord.length()){
-            tw3.setText(USER_WINS);
+        if(tNode.isWord(userWord)) {
+            if (userWord.length() > compWord.length()) {
+                tw3.setText(USER_WINS);
+            } else {
+                tw3.setText(COMPUTER_WINS);
+            }
         }
-        else{
-            tw3.setText(COMPUTER_WINS);
-        }
+        else
+        tw3.setText(COMPUTER_WINS);
         tw4.setText("Press RESET to start a new game!!");
     }
 
@@ -167,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
             if(buildCharacter!=notToUse)
             {
                 longWord = tNode.getLongestWordStartingWith(toBuild + buildCharacter);
+
                 if(longWord!=null) {
                     if (!wordMap.containsKey(longWord.length())) {
                         pq.add(longWord.length());
