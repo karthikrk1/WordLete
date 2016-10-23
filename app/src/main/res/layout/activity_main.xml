@@ -22,10 +22,7 @@
         android:layout_marginTop="31dp"
         android:id="@+id/textView2"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textAppearance="@android:style/TextAppearance.Holo.Light"
-        android:textSize="18sp"
-        android:fontFamily="casual" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="Game Status"
@@ -35,9 +32,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="51dp"
-        android:id="@+id/textView3"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        android:textSize="14sp" />
+        android:id="@+id/textView3" />
 
     <TextView
         android:text="User Word"
@@ -47,10 +42,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="1dp"
-        android:textAppearance="@android:style/TextAppearance.Holo.Light"
-        android:textSize="18sp"
-        android:fontFamily="casual" />
+        android:layout_marginTop="1dp" />
 
     <Button
         android:text="DONE"
@@ -82,9 +74,7 @@
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        android:textSize="14sp" />
+        android:layout_marginTop="52dp" />
 
     <TextView
         android:text="TextView"
@@ -93,7 +83,5 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/textView6"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        android:textSize="14sp" />
+        android:id="@+id/textView6" />
 </RelativeLayout>
