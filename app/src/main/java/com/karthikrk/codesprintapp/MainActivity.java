@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String COMPUTER_WINS="Computer won!!!";
     private boolean userPlays=false;
     private Character[] alphabets = new Character[26];
-    private int turn=1;
+    private int turn;
 
 
 
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
      * @return
      */
     public boolean onStart(View view){
+        turn=1;
         int alpha = rand.nextInt(26);
         String c = Character.toString((char) (97+alpha));
         tw1 = (TextView) findViewById(R.id.textView);
