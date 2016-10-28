@@ -10,8 +10,8 @@ The winner is chosen at the end by checking who had the longest dictionary word 
 
 Google Applied CS with Android is a workshop run by Google for improving knowledge in Data Structures and Algorithms through the use of Android Apps. This app was designed by 
 
-*** Karthik Ramakrishnan ***
-*** Badhrinath Santhanam ***
+***Karthik Ramakrishnan***
+***Badhrinath Santhanam***
 
 as part of the Code Sprint. 
 
