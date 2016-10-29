@@ -17,4 +17,9 @@ public class LauncherActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void onInsClick(View view) {
+        Intent intent = new Intent(this, InstructionActivity.class);
+        startActivity(intent);
+    }
 }
