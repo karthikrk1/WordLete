@@ -13,11 +13,19 @@ public class LauncherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launcher);
     }
 
+    /**
+     * Handler for the Start Button
+     * @param view
+     */
     public void onClickStart(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Handler for the Instruction Button
+     * @param view
+     */
     public void onInsClick(View view) {
         Intent intent = new Intent(this, InstructionActivity.class);
         startActivity(intent);

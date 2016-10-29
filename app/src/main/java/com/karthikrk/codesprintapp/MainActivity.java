@@ -9,13 +9,9 @@ import java.util.*;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -110,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
 //        tw4.setEnabled(false);
     }
 
+    /**
+     * Method for the computer turn. This handles choosing the word and then updating the text field
+     * @param s
+     *          : Input prefix taken from the user's textbox
+     */
     public void computerTurn(String s) {
         //tw2.setEnabled(true);
         tw3.setText(COMPUTER_TURN);
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         if(turn==2||turn==4||turn==6) {
             tw6.setText("Feel free to guess "+(turnlimit-turn+1)+" more letters!");
             tw4.setText("Computer enters a character!!");
-            computerWord=GuessWord(computerBuild);
+            computerWord= guessWord(computerBuild);
             String al = tw2.getText().toString();
             al = al + Character.toString(computerWord.charAt(s.length()-1));
             tw2.setText(al);
@@ -136,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Utility method to find the winner after the last turn. The method ends the game. RESET is pressed to make the game come
+     * back to the start state.
+     */
     public void findWinner() {
         String userWord = tw1.getText().toString();
         String compWord = tw2.getText().toString();
@@ -177,7 +182,16 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    protected String GuessWord(String start)
+    /**
+     * Method guessWord which is used by the computer to compute the longest word with the start alphabet. This is
+     * dynamically modified as the user fills the text box with his word.
+     *
+     * @param start
+     *              : Prefix entered by the user
+     * @return
+     *              : Returns the longest word possible by excluding the prefix chosen by the user.
+     */
+    protected String guessWord(String start)
     {
         Character notToUse = start.charAt(start.length()-1);
         String toBuild = start.substring(0,start.length()-1);
