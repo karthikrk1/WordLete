@@ -90,10 +90,13 @@ public class MainActivity extends AppCompatActivity {
         tw4 = (TextView) findViewById(R.id.textView4);
         tw3.setText(USER_TURN);
 
+        if(turnlimit==0)
+        {
+            tw4.setText("Please enter the word you thought of. Press DONE to continue");
+        }
         //turn=1;
-        if(turn<turnlimit){
-            if(turn==1)
-                tw6.setText("Feel free to guess "+(turnlimit)+" more letters!");
+        if(!(turn%2==0)&&turnlimit>0){
+
             tw4.setText("Please enter one character. Press DONE to continue");
             turn++;
 
@@ -119,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
         else
         computerBuild = computerBuild + s.charAt(s.length()-1);
         //int turn=1;
-        if(turn==2||turn==4||turn==6) {
-            tw6.setText("Feel free to guess "+(turnlimit-turn+1)+" more letters!");
+        if(turn%2==0&&turnlimit>0) {
+
             tw4.setText("Computer enters a character!!");
             computerWord= guessWord(computerBuild);
             String al = tw2.getText().toString();
@@ -135,6 +138,15 @@ public class MainActivity extends AppCompatActivity {
             tw2.setText(computerWord);
             findWinner();
         }
+        turnlimit--;
+        if(turnlimit>0) {
+            tw6.setText("Feel free to guess " + (turnlimit) + " more letters!");
+        }
+        else {
+            tw6.setText("You don't have letters to guess anymore!");
+            tw4.setText("Please enter the word you thought of. Press DONE to continue");
+        }
+
     }
 
     /**
