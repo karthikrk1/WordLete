@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">WordLete</string>
-    <string name="ins"> 1. You will get a random letter from the App\n2. Think of a dictionary word starting with the alphabet\n3. Enter the second character of the word\n4. Computer also thinks of a word and it enters it in the box\n5. Go on entering character by character\n6. When prompted, enter the full word.\n7. If computer enters a longer word, it wins; else you win!!!\n\n                  Good Luck!!!"</string>
+    <string name="ins">Wordlete plays with you to test your vocabulary!\n1. You and Wordlete will first be given an alphabet\n2. Think of a dictionary word starting with the alphabet\n3. Enter one letter at a time till you have letters left to guess\n4. Wordlete will do the same but it will not choose a letter you chose last\n(Remember, you could use this to spoof Wordlete!)\n5. You will win only by adding letters that lead to a dictionary word\n6. When prompted, enter the full word you thought.\n7. If Wordlete enters a longer word, it wins; else, you win!\n\n                  Good Luck!"</string>
 </resources>
