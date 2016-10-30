@@ -21,7 +21,7 @@
         android:textSize="30sp" />
 
     <TextView
-        android:text="TextView"
+        android:text="@string/ins"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/textView5"

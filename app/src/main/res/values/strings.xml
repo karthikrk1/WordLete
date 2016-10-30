@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">CodeSprintApp</string>
+    <string name="app_name">WordLete</string>
+    <string name="ins"> 1. You will get a random letter from the App\n2. Think of a dictionary word starting with the alphabet\n3. Enter the second character of the word\n4. Computer also thinks of a word and it enters it in the box\n5. Go on entering character by character\n6. When prompted, enter the full word.\n7. If computer enters a longer word, it wins; else you win!!!\n\n                  Good Luck!!!"</string>
 </resources>
