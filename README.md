@@ -1,4 +1,3 @@
-# WordLete
 
 ![WordLete](https://raw.github.com/karthikrk1/WordLete/master/app/src/main/res/drawable/word_logo.png)
 
