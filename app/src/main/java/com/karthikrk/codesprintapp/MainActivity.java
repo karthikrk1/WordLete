@@ -204,6 +204,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method guessWord which is used by the computer to compute the longest word with the start alphabet. This is
      * dynamically modified as the user fills the text box with his word.
+     *  Will have to fix spoofed computer turn yet as of October 29, 2016
+     *
+     *
      *
      * @param start
      *              : Prefix entered by the user
