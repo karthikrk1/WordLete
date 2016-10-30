@@ -23,11 +23,12 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     /**
-     * Handler for the Instruction Button
+     * Handler for the Instruction Button - Opens a new Activity
      * @param view
      */
     public void onInsClick(View view) {
         Intent intent = new Intent(this, InstructionActivity.class);
         startActivity(intent);
     }
+
 }
