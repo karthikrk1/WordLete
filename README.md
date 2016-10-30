@@ -1,5 +1,7 @@
 # WordLete
 
+![WordLete](https://raw.github.com/karthikrk1/WordLete/master/app/src/main/res/drawable/word_logo.png)
+
 ## Introduction
 
 WordLete is an word completion game that is played between 2 or more players. The objective of the game is to start with a random character (chosen by the app) and try to think of the longest word starting with it. The game starts by the first player adding the second character of the word he/she chose to the text box. The challenge of the game is that the second player cannot enter the same character as the first player. This is the same for each of the turns. 
