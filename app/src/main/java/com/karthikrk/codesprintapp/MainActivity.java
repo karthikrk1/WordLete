@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private int turnlimit;
     private String computerWord;
     private static String computerBuild;
+    private boolean spoofed = false;
 
 
 
@@ -126,6 +127,10 @@ public class MainActivity extends AppCompatActivity {
 
             tw4.setText("Computer enters a character!!");
             computerWord= guessWord(computerBuild);
+            if(computerWord==null) {
+                spoofed = true;
+                computerGiveUp();
+            }
             String al = tw2.getText().toString();
             al = al + Character.toString(computerWord.charAt(s.length()-1));
             tw2.setText(al);
@@ -170,6 +175,8 @@ public class MainActivity extends AppCompatActivity {
         else
         tw3.setText(COMPUTER_WINS);
         tw4.setText("Press RESET to start a new game!!");
+        if(spoofed)
+            tw6.setText("You cannot spoof and enter the wrong word mate!");
     }
 
     /**
@@ -230,11 +237,24 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 }
+                else{
+                    spoofed = true;
+                    computerGiveUp();
+
+                }
 
             }
         }
 
         String chosen = wordMap.get(pq.peek()).get(0);
         return chosen;
+    }
+
+    public void computerGiveUp()
+    {
+        tw6.setText("You have successfully spoofed Wordlete!");
+        tw4.setText("Please enter the word you thought of. Press DONE to continue");
+        findWinner();
+
     }
 }
