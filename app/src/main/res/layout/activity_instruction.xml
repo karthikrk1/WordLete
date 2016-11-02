@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView 
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_instruction"
     android:layout_width="match_parent"
@@ -36,3 +40,4 @@
         android:textStyle="normal|bold"
         android:textColor="@color/colorPrimaryDark" />
 </RelativeLayout>
+</ScrollView>
